@@ -9,6 +9,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.time.LocalDateTime;
+
 @Entity(name = "security")
 @Data
 @Builder
@@ -23,4 +25,7 @@ public class Security {
 
     @Column(name = "key" , length = 32)
     private String key;
+
+    @Column(name = "createdate")
+    private LocalDateTime createdate;
 }

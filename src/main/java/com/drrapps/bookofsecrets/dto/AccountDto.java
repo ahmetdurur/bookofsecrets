@@ -1,20 +1,23 @@
 package com.drrapps.bookofsecrets.dto;
 
+import com.drrapps.bookofsecrets.model.Security;
+import com.drrapps.bookofsecrets.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+public class AccountDto {
     private String id;
-    private String name;
-    private String surname;
-    private LocalDate birthday;
+    private Security securityFk;
+    private User userFk;
+    private String username;
+    private String userpassword;
+    private String description;
     private LocalDateTime createdate;
 }

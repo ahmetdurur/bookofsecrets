@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity(name = "account")
 @Data
@@ -36,4 +37,8 @@ public class Account {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "createdate")
+    private LocalDateTime createdate;
+
 }

@@ -9,6 +9,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -29,8 +32,9 @@ public class UserController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity addUser (@RequestParam Map<String,String> allParamaters){
-        return new ResponseEntity(userService.addUser(userBuilder.createUserDto(allParamaters)) , HttpStatusCode.valueOf(200));
+    public ResponseEntity addUser (@RequestParam(value = "name")String name,@RequestParam(value = "surname")String surname, @RequestParam(value = "birthday")String birthday ){
+        User user = new User(null, name, surname, LocalDate.parse(birthday), LocalDateTime.now());
+        return new ResponseEntity(userService.addUser(user), HttpStatusCode.valueOf(200));
     }
 
 }

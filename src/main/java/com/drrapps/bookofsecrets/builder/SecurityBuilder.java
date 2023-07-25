@@ -8,16 +8,22 @@ import java.security.Key;
 
 @Component
 public class SecurityBuilder {
-    public Security DtoToSecurity(SecurityDto securityDto){
-        return new Security().builder()
-                .id(securityDto.getId())
-                .key(securityDto.getKey()).build();
+    public Security dtoToSecurity(SecurityDto dto){
+        return new Security()
+                .builder()
+                .id(dto.getId())
+                .key(dto.getKey())
+                .createdate(dto.getCreatedate())
+                .build();
     }
 
-    public SecurityDto createSecurityDto(Security security){
-        return new SecurityDto().builder()
+    public SecurityDto securitytoDto(Security security){
+        return new SecurityDto()
+                .builder()
                 .id(security.getId())
-                .key(security.getKey()).build();
+                .key(security.getKey())
+                .createdate(security.getCreatedate())
+                .build();
     }
 
 }

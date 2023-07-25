@@ -22,7 +22,7 @@ public class SecurityController {
 
     @PostMapping(value = "/getSecurity" , produces = MediaType.APPLICATION_JSON_VALUE)
     public String getSecurity (@RequestParam(value = "id") String id){
-      return new Gson().toJson( securityBuilder.createSecurityDto(securityService.getSecurityWithId(id)));
+      return new Gson().toJson( securityBuilder.securitytoDto(securityService.getSecurityWithId(id)));
     }
 
 }

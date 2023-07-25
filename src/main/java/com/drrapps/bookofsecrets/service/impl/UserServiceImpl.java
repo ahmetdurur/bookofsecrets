@@ -1,7 +1,6 @@
 package com.drrapps.bookofsecrets.service.impl;
 
 import com.drrapps.bookofsecrets.builder.UserBuilder;
-import com.drrapps.bookofsecrets.dto.UserDto;
 import com.drrapps.bookofsecrets.model.User;
 import com.drrapps.bookofsecrets.repo.UserRepository;
 import com.drrapps.bookofsecrets.service.UserService;
@@ -22,7 +21,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User addUser(UserDto userDto) {
-        return userRepository.save(userBuilder.DtoToUser(userDto));
+    public User addUser(User user) {
+        return userRepository.save(user);
     }
 }
