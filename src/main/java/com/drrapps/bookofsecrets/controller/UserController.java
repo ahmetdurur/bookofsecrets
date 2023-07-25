@@ -26,12 +26,12 @@ public class UserController {
     private final UserBuilder userBuilder;
     private final AESUtil aesUtil;
 
-    @GetMapping("/getAll")
+    @GetMapping("/getAllUsers")
     public ResponseEntity<List<User>> getAll(){
         return new ResponseEntity<>(userService.getAllUsers(),HttpStatusCode.valueOf(200));
     }
 
-    @PostMapping("/add")
+    @PostMapping("/addUser")
     public ResponseEntity addUser (@RequestParam(value = "name")String name,@RequestParam(value = "surname")String surname, @RequestParam(value = "birthday")String birthday ){
         User user = new User(null, name, surname, LocalDate.parse(birthday), LocalDateTime.now());
         return new ResponseEntity(userService.addUser(user), HttpStatusCode.valueOf(200));
